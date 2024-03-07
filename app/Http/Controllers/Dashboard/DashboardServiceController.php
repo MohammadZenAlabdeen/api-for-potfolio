@@ -1,20 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Service;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Mews\Purifier\Purifier;
-class ServiceController extends Controller
+use App\Models\Service;
+
+class DashboardServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $services=Service::all();
-        return response()->json($services,200);
-    }
+
 
     /**
      * Store a newly created resource in storage.

@@ -1,24 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Project;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Project;
 
-class ApiProjectController extends Controller
+class DashboardProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $projects=Project::all();
-        return response()->json($projects,200);
-    }
+
 
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         $project=new Project();

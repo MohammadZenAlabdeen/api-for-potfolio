@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Section;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Mews\Purifier\Purifier;
+use App\Models\Section;
 
-class ApiSectionController extends Controller
+class DashboardSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $sections=Section::all();
-        return response()->json($sections,200);
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -98,7 +94,7 @@ class ApiSectionController extends Controller
                 
                 return response()->json([
                     'status' => 'success',
-                    'message' => $request,
+                    'message' => 'updated succesfully',
                 ],201);}else{
                     return response()->json([
                         'status' => 'fail',
