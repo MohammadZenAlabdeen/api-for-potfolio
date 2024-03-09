@@ -14,6 +14,9 @@ class ServiceController extends Controller
     public function index()
     {
         $services=Service::all();
+        foreach($services as $service){
+            $service->join($service,$service->images);
+        }
         return response()->json($services,200);
     }
 

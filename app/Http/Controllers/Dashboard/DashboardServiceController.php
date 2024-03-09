@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -19,20 +20,22 @@ class DashboardServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'img'=>'image',
             'title'=>'string|required',
             'desc'=>'string|required',
         ]);
         $service=new Service();
         $service->title=$request->input('title');
         $service->desc=clean($request->input('desc'));
-        if($request->hasFile('img')){
-            $image = $request->file('img');
-            $imageName= time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'),$imageName);
-            $service->img=$imageName;
-        }
         $service->save();
+        if($request->hasFile('imgs')){
+            $imageTable= new Image;
+            foreach ($request->file('imgs') as $img) {
+                $imageName= time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('images'),$imageName);
+            $imageTable->img=$imageName;
+            $service->images()->save($imageTable->replicate());
+            }
+        }
         return response()->json(['status'=>'success','message'=>'stored successfuly'],200);
     }
 
@@ -41,6 +44,7 @@ class DashboardServiceController extends Controller
      */
     public function show(Service $service)
     {
+        $service->join($service,$service->images);
         return response()->json($service,200);
     }
 
@@ -51,17 +55,20 @@ class DashboardServiceController extends Controller
     {
         if(Service::where('id',$service->id)->exists()){
         $request->validate([
-            'img'=>'image',
             'title'=>'string|required',
             'desc'=>'string|required',
         ]);
         $service->title=$request->input('title');
         $service->desc=clean($request->input('desc'));
-        if($request->hasFile('img')){
-            $image = $request->file('img');
-            $imageName= time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'),$imageName);
-            $service->img=$imageName;
+        $service->save();
+        if($request->hasFile('imgs')){
+            $imageTable= new Image;
+            foreach ($request->file('imgs') as $img) {
+                $imageName= time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('images'),$imageName);
+            $imageTable->img=$imageName;
+            $service->images()->save($imageTable->replicate());
+            }
         }
         return response()->json(['status'=>'success','message'=>'stored successfuly'],200);}else{
             return response()->json(['status'=>'failed','message'=>'not found'],404);

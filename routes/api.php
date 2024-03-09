@@ -25,9 +25,15 @@ use Spatie\FlareClient\Api;
 */
 Route::post('/login',[ApiUserController::class,'login'])->name('user.login');
 Route::get('/sections',[SectionController::class,'index']);
+Route::get('/dashboard/sections',[SectionController::class,'index']);
+
 Route::get('/projects',[ProjectController::class,'index']);
+Route::get('/dashboard/projects',[ProjectController::class,'index']);
+
 Route::post('/clientrequest/store',[ClientrequestController::class,'store']);
+
 Route::get('/services',[ServiceController::class,'index']);
+Route::get('/dashboard/services',[ServiceController::class,'index']);
 
 Route::middleware('auth:sanctum')->group( function (){
     Route::post('/logout',[ApiUserController::class,'logout']);

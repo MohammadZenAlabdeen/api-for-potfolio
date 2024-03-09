@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Section;
 
@@ -22,29 +23,27 @@ class DashboardSectionController extends Controller
             $section=new Section();
             $section->title=$request['title'];
             $section->desc=clean($request->input('desc'));
-
-            
-
-            $allImages=null;
-            $allLinks=null;
-            if($request->hasFile('imgs')){
-                foreach ($request->file('imgs') as $img) {
-                    $imageName= time() . '.' . $img->getClientOriginalName();
-                $img->move(public_path('images'),$imageName);
-                $allImages .= $allImages == null ? $imageName : ';' . $imageName;
-                }
-                $section->imgs=$allImages;
-            }
+            $allLinks=[];
 
             if($request->has('links')){
                 foreach($request->input('links') as $link){
-                    $allLinks .= $allLinks == null ? $link : ';' . $link;
+                    array_push($allLinks,$link);
                 }
-                $section->links=$allLinks;
+                $section->links=implode(' ',$allLinks);
+            }
+            $section->save();
+            if($request->hasFile('imgs')){
+                $imageTable= new Image;
+                foreach ($request->file('imgs') as $img) {
+                    $imageName= time() . '.' . $img->getClientOriginalName();
+                $img->move(public_path('images'),$imageName);
+                $imageTable->img=$imageName;
+                $section->images()->save($imageTable->replicate());
+                }
+
             }
 
-            $section->save();
-            return response()->json(['status' => 'success'],200);
+            return response()->json(['status' => $section->images],200);
     }
 
     /**
@@ -52,6 +51,7 @@ class DashboardSectionController extends Controller
      */
     public function show(Section $section)
     {
+        $section->join($section,$section->images);
         return response()->json($section,200);
     }
 
@@ -73,25 +73,25 @@ class DashboardSectionController extends Controller
                 $section->title=$request->title;
               /*   dd($request); */
                 $section->desc=clean($request->input('desc'));
-                $allImages=null;
-                $allLinks=null;
-                if($request->hasFile('imgs')){
-                    foreach ($request->file('imgs') as $img) {
-                        $imageName= time() . '.' . $img->getClientOriginalName();
-                    $img->move(public_path('images'),$imageName);
-                    $allImages .= $allImages == null ? $imageName : ';' . $imageName;
-                    }
-                    $section->imgs=$allImages;
-                }
+                $allLinks=[];
 
                 if($request->has('links')){
                     foreach($request->input('links') as $link){
-                        $allLinks .= $allLinks == null ? $link : ';' . $link;
+                        array_push($allLinks,$link);
                     }
-                    $section->links=$allLinks;
+                    $section->links=implode(' ',$allLinks);
                 }
                 $section->save();
-                
+                if($request->hasFile('imgs')){
+                    $imageTable= new Image;
+                    foreach ($request->file('imgs') as $img) {
+                        $imageName= time() . '.' . $img->getClientOriginalName();
+                    $img->move(public_path('images'),$imageName);
+                    $imageTable->img=$imageName;
+                    $section->images()->save($imageTable->replicate());
+                    }
+    
+                }
                 return response()->json([
                     'status' => 'success',
                     'message' => 'updated succesfully',

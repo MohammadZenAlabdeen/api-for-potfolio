@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
@@ -21,18 +22,21 @@ class DashboardProjectController extends Controller
             'title'=>'string|required',
             'desc'=>'string|required',
             'link'=>'string|required',
-            'img'=>'image'
         ]);
         $project->title=$request->input('title');
         $project->desc=clean($request->input('desc'));
         $project->link=$request->input('link');
-        if($request->hasFile('img')){
-            $image = $request->file('img');
-            $imageName= time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'),$imageName);
-            $project->img=$imageName;
-        }
+
         $project->save();
+        if($request->hasFile('imgs')){
+            $imageTable= new Image;
+            foreach ($request->file('imgs') as $img) {
+                $imageName= time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('images'),$imageName);
+            $imageTable->img=$imageName;
+            $project->images()->save($imageTable->replicate());
+            }
+        }
         return response()->json($project,200);
     }
 
@@ -41,6 +45,7 @@ class DashboardProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $project->join($project,$project->images);
         return response()->json($project,200);
     }
 
@@ -54,18 +59,21 @@ class DashboardProjectController extends Controller
                 'title'=>'string|required',
                 'desc'=>'string|required',
                 'link'=>'string|required',
-                'img'=>'image'
             ]);
             $project->title=$request->input('title');
             $project->desc=clean($request->input('desc'));
             $project->link=$request->input('link');
-            if($request->hasFile('img')){
-                $image = $request->file('img');
-                $imageName= time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images'),$imageName);
-                $project->img=$imageName;
-            }
+
             $project->save();
+            if($request->hasFile('imgs')){
+                $imageTable= new Image();
+                foreach ($request->file('imgs') as $img) {
+                    $imageName= time() . '.' . $img->getClientOriginalName();
+                $img->move(public_path('images'),$imageName);
+                $imageTable->img=$imageName;
+                $project->images()->save($imageTable->replicate());
+                }
+            }
             return response()->json([
                 'status' => 'success',
                 'message' => 'project updated successfully',

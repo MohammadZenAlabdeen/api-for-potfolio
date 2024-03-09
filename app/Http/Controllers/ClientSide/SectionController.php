@@ -14,6 +14,9 @@ class SectionController extends Controller
     public function index()
     {
         $sections=Section::all();
+        foreach($sections as $section){
+            $section->join($section,$section->images);
+        }
         return response()->json($sections,200);
     }
 
