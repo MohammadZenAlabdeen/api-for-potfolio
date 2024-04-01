@@ -43,7 +43,7 @@ class DashboardSectionController extends Controller
 
             }
 
-            return response()->json(['status' => $section->images],200);
+            return response()->json(['status' => $section],200);
     }
 
     /**
@@ -60,7 +60,7 @@ class DashboardSectionController extends Controller
      */
     public function update(Request $request, Section $section)
     {
-
+        
         if(Section::where('id',$section->id)->exists()){
             $request->validate(
                 [
@@ -71,7 +71,6 @@ class DashboardSectionController extends Controller
                 );
                 
                 $section->title=$request->title;
-              /*   dd($request); */
                 $section->desc=clean($request->input('desc'));
                 $allLinks=[];
 
@@ -82,19 +81,27 @@ class DashboardSectionController extends Controller
                     $section->links=implode(' ',$allLinks);
                 }
                 $section->save();
-                if($request->hasFile('imgs')){
-                    $imageTable= new Image;
+                if ($request->hasFile('imgs')) {
+                    // Delete existing images related to the section
+                    $section->images()->delete();
+                
+                    // Upload and save new images
                     foreach ($request->file('imgs') as $img) {
-                        $imageName= time() . '.' . $img->getClientOriginalName();
-                    $img->move(public_path('images'),$imageName);
-                    $imageTable->img=$imageName;
-                    $section->images()->save($imageTable->replicate());
+                        $imageName = time() . '_' . $img->getClientOriginalName();
+                        $img->move(public_path('images'), $imageName);
+                
+                        // Create a new Image model instance for each image
+                        $image = new Image();
+                        $image->img = $imageName;
+                
+                        // Save the image record associated with the section
+                        $section->images()->save($image);
                     }
-    
                 }
                 return response()->json([
                     'status' => 'success',
                     'message' => 'updated succesfully',
+                    'images' => $request->file('imgs')
                 ],201);}else{
                     return response()->json([
                         'status' => 'fail',
