@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useRef } from 'react'
 import FormData from 'form-data'
+import './Contact.css'
 
 function Contact() {
     let n=useRef();

@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios';
 import React, { useRef, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
-import './../../css/app.css'
-import AuthContext from './AuthContext';
+import './Login.css'
+import AuthContext from '../../AuthContext';
 
 
 

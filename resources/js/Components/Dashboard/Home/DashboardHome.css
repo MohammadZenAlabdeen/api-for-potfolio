@@ -1,0 +1,54 @@
+.nav-dashboard {
+    display: flex;
+    justify-content: space-between !important;
+     padding: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+  color: #000000;
+}
+.nav-dashboard h1{
+    width: max-content;
+    padding: 10px 15px !important;
+}
+#closed{
+    display: none;
+}
+#opened{
+    display: none;
+}
+.nav-dashboard .menu{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 30px;
+/*     position: absolute;
+    left: 232px; */
+    transition: 0.3s;
+    overflow: hidden;
+    height: 100vh;
+
+    background-color: rgb(107, 36, 178); 
+    color: white;
+}
+.nav-dashboard .menu button{
+    position: absolute;
+    right: 10px;
+}
+.nav-dashboard .menu a{
+    font-style: normal;
+    padding: 15px 0;
+    color: #000000;
+    width: 232px;
+}
+
+.nav-dashboard .open{
+    right: 0;
+    transition: 0.3s;
+}
+.nav-dashboard .menu a:hover{
+    color: #E4E4ED;
+    background-color: rgb(107, 36, 100);
+    transition: ease-in-out 0.125s;
+}

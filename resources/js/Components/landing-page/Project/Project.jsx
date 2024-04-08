@@ -1,9 +1,11 @@
 import React from 'react'
 import { FaExternalLinkAlt } from "react-icons/fa"
 import HTMLReactParser from 'html-react-parser';
+import './Project.css'
+
 
 function Project({Project}) {
-    let p = './../../../../images/';
+  let p = './../../../../images/';
   return (
     
     <div className='Project'>

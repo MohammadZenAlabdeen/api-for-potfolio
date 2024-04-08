@@ -1,0 +1,266 @@
+.dark .Hero .WhoContainer .Border{
+    border-color: white;
+}
+.dark .Hero .WhoContainer .B a{
+    color: #f6f6f6;
+}
+.dark .Hero .WhoContainer .B #B2{
+    border-color: #28282B;
+}
+
+.dark nav .open{
+color: black;
+}
+ nav .open button{
+    background:none;
+    border: none;
+    margin: auto;
+}
+nav .open button div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.dark .Contact input , .dark .Contact textarea{
+    background-color: #28282B !important;
+    color: white;
+}
+header{
+    height: 100vh;
+}
+ nav ul{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    gap: 60px;
+}
+ nav h1{
+    width: 87px;
+    height: 87px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ nav ul li{
+    width: 87px;
+    height: 87px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav ul li:hover{
+    color: white;
+    background-color: rgb(107, 36, 178);
+    transition: 0.3s ease-in-out;
+
+}
+ nav   {
+    display:  flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 87px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000000000000000000000000000000000000000000000000000000000000000000;
+}
+header .Hero{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 87px;
+}
+header .Hero .WhoContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 60px;
+    padding: 20px;
+    align-items: center;
+}
+.WhoContainer .desc{
+    max-width: 50vw;
+}
+.WhoContainer .desc p{
+    padding-top: 30px;
+}
+header .Hero .WhoContainer #title{
+    font-size: 16px;
+    width: fit-content;
+    padding: 10px 5px;
+
+    color: rgb(107, 36, 178);
+    font-size: 25px;
+    margin: 20px 0;
+
+}
+   
+header .Hero .WhoContainer .ImgContain{
+    background-color: rgb(107, 36, 178);
+    width: clamp(400px,30vw,600px);
+    height: 45vh;
+    position: relative;
+}
+header .Hero .WhoContainer img{
+    position: absolute;
+    z-index: 100;
+    bottom: 0%;
+    right: 5%;
+
+}
+header .Hero .WhoContainer .Border{
+    height: 45vh;
+    width: 100%;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    left: 40%;
+    top: 60%;
+    border: 3px solid black;
+}
+header .Hero .WhoContainer .B{
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    gap: 25px;
+}
+header .Hero .WhoContainer .B a{
+    text-decoration: none;
+    color: black;
+}
+header .Hero .WhoContainer .B #B1{
+    background-color: rgb(107, 36, 178);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+}
+header .Hero .WhoContainer .B #B2{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px 30px;;
+
+    border-bottom: 1px solid white;
+}
+header .Hero .WhoContainer .B #B2:hover{
+    border-color: rgb(107, 36, 178);
+    
+    transition: 0.3s ease-in-out;
+}
+nav .side{
+    display: none;
+}
+nav .open{
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    z-index: 100000000000000000000;
+    top: 0;
+    left: calc(100vw - 200px);
+    width: 200px;
+    padding: 50px 0;
+    background-color: white;
+    height: 100vh;
+    border-left: 1px solid gray;
+}
+.open li{
+    width: 100%;
+}
+#menu{
+    display: none;
+}
+#close{
+    display: none;
+}
+.dark nav{
+    background-color: black;
+  
+}
+.light nav{
+    background-color: #f6f6f6;
+}
+@media screen and (max-width:992px) {
+    nav ul{
+        display: none;
+     }
+      nav{
+        padding: 0 10px !important;
+    
+     }
+     #menu{
+        display: block;
+        background:none;
+        border: none;
+     }
+     #close{
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 25px;
+        background: none;
+        border:none;
+     }
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+     .WhoContainer{
+        flex-direction: column;
+        padding: 0 10px  !important;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+     }
+     .WhoContainer div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+     }
+     .WhoContainer .desc{
+        font-size: 13px;
+      
+     }
+     .WhoContainer .B{
+        flex-direction: column;
+     
+        justify-content: center;
+        width: 100%;
+     }
+     #B1{
+        padding: 15px 20vw !important;
+    
+     }
+     header .Hero .WhoContainer .ImgContain{
+        width: clamp(280px,80vw,600px);
+        margin: 50px 0;
+        height: 40vh;
+    
+     }
+     header .Hero .WhoContainer .ImgContain img{
+        
+        height: 40vh;
+        transform: translateX(-50%);
+        left: 40%;
+     }
+     .WhoContainer .desc{
+        max-width: 100vw;
+    }
+    header .Hero{
+        top: 140px;
+     }
+ header .Hero .WhoContainer .ImgContain .Border{
+    width: clamp(280px,80vw,600px);
+
+    left: 48%;
+    height: 40vh;
+
+    top: 55%;
+
+ }
+}

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import './Stack.css'
 
 import 'swiper/swiper-bundle.css'; // Import Swiper styles
 
 function Stack({stack}) {
 
-    let p='./../../../../images/'
+  let p = './../../../../images/';
     stack.images.map((element)=>{console.log(element.img)})
   return (
     <div className='stack'>

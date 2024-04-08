@@ -3,7 +3,8 @@ import ReactQuill from 'react-quill';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import AuthContext from './AuthContext';
+import AuthContext from '../../AuthContext';
+import './Update.css'
 
 function Update(props) {
   const id = useParams();

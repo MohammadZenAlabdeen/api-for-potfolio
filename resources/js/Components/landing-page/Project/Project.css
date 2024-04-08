@@ -1,0 +1,37 @@
+.Project{
+    width: clamp(290px ,25.8vw ,350px);
+    height: 500px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(107, 36, 178);
+padding-bottom: 0;
+}   
+.Project a{
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+    width: 100%;
+    color: white;
+    background-color: rgb(107, 36, 178);
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    
+}
+.Project img{
+    width: 100%;
+    height: 50%;
+}
+.Project h1{
+    text-align: center;
+    font-size: 25px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(107, 36, 178);
+}

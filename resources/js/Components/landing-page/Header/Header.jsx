@@ -4,10 +4,12 @@ import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import parse from 'html-react-parser';
-import './Landing.css'
-import ThemeContext from './ThemeContext';
+import './Header.css'
+import './../Landing.css'
+import ThemeContext from '../ThemeContext';
 import { FaRegMoon } from "react-icons/fa";
 import { GrSun } from "react-icons/gr";
+
 
 
 function Header({ who }) {
@@ -92,7 +94,6 @@ function Header({ who }) {
       smooth={true} 
       offset={-50} 
       duration={500} 
-
     > <li>
       Home
       </li>

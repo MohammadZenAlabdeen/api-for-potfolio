@@ -1,7 +1,8 @@
 import HTMLReactParser from 'html-react-parser'
 import React, { useState , useEffect} from 'react'
 import axios from 'axios';
-import Project from './Project';
+import Project from './../Project/Project.jsx';
+import './Portfolio.css'
 function Portfolio({Portfolio}) {
     const [projects,setProjects]=useState(null)
     useEffect(() => {

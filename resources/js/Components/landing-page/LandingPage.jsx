@@ -1,12 +1,13 @@
 import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios'; // Import Axios
-import Stack from './Stack'
-import Header from './Header';
-import About from './About.jsx';
-import Portfolio from './Portfolio.jsx';
-import Contact from './Contact.jsx';
-import Footer from './Footer.jsx';
+import Stack from './Stack/Stack.jsx'
+import Header from './Header/Header.jsx';
+import About from './About/About.jsx';
+import Portfolio from './Portfolio/Portfolio.jsx';
+import Contact from './Contact/Contact.jsx';
+import Footer from './Footer/Footer.jsx';
 import ThemeContext from './ThemeContext.jsx';
+import './Landing.css'
 
 function LandingPage() {
   const [sections, setSections] = useState({});
