@@ -13,11 +13,9 @@ function Update(props) {
   const navigate = useNavigate();
   const linkRef = useRef(null);
   const titleRef = useRef(null);
-  const [edit, setEdit] = useState('');
+  
       
-  const handleChange = (content) => {
-    setEdit(content);
-  }
+
   const [selectedFile, setSelectedFile] = useState([]);
   const [all, setAll] = useState([]);
 
@@ -26,11 +24,16 @@ function Update(props) {
       navigate('/login');
     }
   }, [Auth.auth]);
+  const [old,setOld]=useState({});
+  const [edit, setEdit] = useState('');
+  useEffect(()=>{axios.get(props.old+id.id, {headers: {
+    Authorization: 'Bearer ' + localStorage.getItem('token'),}}).then(res=>{setOld(res.data);setEdit(res.data.desc)})},[]);
 
+      const handleChange = (content) => {
+    setEdit(content);
+  }
   const links = () => {
     setAll([...all, linkRef.current.value]);
-    console.log(all);
-    console.log(edit);
   };
 
   const handleEditorChange = (event, editor) => {
@@ -108,25 +111,35 @@ console.log(data._boundary)
     ],
   };
   return (
-    <div>
+    <div className='Update'>
       <h1>{props.name}</h1>
       <div className='editor'>
       <ReactQuill
       theme="snow" // You can choose different themes like 'snow', 'bubble', 'core', or create your own
       value={edit}
+      id='editor'
       onChange={handleChange}
       formats={formats}
       modules={modules}
     />      </div>
+<div className='Input'>
+<input name='title' ref={titleRef} placeholder='title' value={old.title}></input>
 
-      <input name='title' ref={titleRef} placeholder='title'></input>
+      <div className='Add'>
+      <div>{all.map((element, index) => <div key={index}>{element}</div>)}</div>
+      <div className='Inner'>
+      <input type='text' name='link' ref={linkRef} placeholder='links'></input>
+      <button onClick={(event) => { event.preventDefault(); links(); }}>add</button>
+      </div>
+
+      </div>
+
+   
       <input type='file' multiple  name='images'  onChange={(e) => {setSelectedFile(e.target.files);console.log(selectedFile)}}></input>
 
-      <div>{all.map((element, index) => <div key={index}>{element}</div>)}</div>
-      <input type='text' name='link' ref={linkRef}></input>
-      <button onClick={(event) => { event.preventDefault(); links(); }}>add</button>
-      <br />
-      <button onClick={() => { update(); }}>submit</button>
+      <button onClick={() => { update(); }} id='submit'>submit</button>
+</div>
+
     </div>
   );
 }

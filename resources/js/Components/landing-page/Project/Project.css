@@ -25,6 +25,18 @@ padding-bottom: 0;
     margin-top: 20px;
     
 }
+.dark .Project a:hover{
+    border: 1px solid rgb(107, 36, 178);
+    background-color: #28282B;
+    color: #f6f6f6;
+    transition: 0.2s ease-in-out;
+}
+.light .Project a:hover{
+    border: 1px solid rgb(107, 36, 178);
+    background-color: #f6f6f6;
+    color: #28282B;
+    transition: 0.2s ease-in-out;
+}
 .Project img{
     width: 100%;
     height: 50%;

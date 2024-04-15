@@ -22,3 +22,14 @@
 .Section .container table,td,th{
     border: 1px solid black;
 }
+#SectionTitle{
+    margin-bottom: 20px;
+}
+#Create{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 7px 5px;
+    border-radius: 5px;
+
+}

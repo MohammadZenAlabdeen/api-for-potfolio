@@ -28,8 +28,8 @@ function DashboardSection({name,api}) {
   return (
     <>
     <div className='Section'>
-      <h1>{name}</h1>
-      {name !== 'Client requests' ? <Link to={window.location.pathname+'/create'}>create new</Link> : <></>}
+      <h1 id='SectionTitle'>{name}</h1>
+      {name !== 'Client requests' ? <Link to={window.location.pathname+'/create'} id='Create'>create new</Link> : <></>}
       
       {name !== 'Client requests' ?  <div className='container'>{data.map((element)=>{return <Card info={element}></Card>})}</div> :  <div className='container'><table><th>Name</th><th>Description</th><th>Email</th> <th>Delete</th>{data.map((element)=>{return <Card info={element}></Card>})}</table></div>}
      

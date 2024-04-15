@@ -8,6 +8,7 @@ import Contact from './Contact/Contact.jsx';
 import Footer from './Footer/Footer.jsx';
 import ThemeContext from './ThemeContext.jsx';
 import './Landing.css'
+import Plx from 'react-plx';
 
 function LandingPage() {
   const [sections, setSections] = useState({});
@@ -43,13 +44,19 @@ function LandingPage() {
   useEffect(()=>{localStorage.setItem('theme',theme);
 document.body.className=theme;
 },[theme]);
+
+
   return (
     <>{who.title !== undefined ? (
     <ThemeContext.Provider value={{theme,toggleTheme}}>
+
       <Header who={who}></Header>
+
+
       <main className={theme}>
         <Stack stack={stack}></Stack>
         <About About={Aboutsec}></About>
+
         <Portfolio Portfolio={Portfoliosec}></Portfolio>
         <Contact></Contact>
       </main>

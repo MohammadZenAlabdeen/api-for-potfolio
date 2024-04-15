@@ -9,6 +9,7 @@ import './../Landing.css'
 import ThemeContext from '../ThemeContext';
 import { FaRegMoon } from "react-icons/fa";
 import { GrSun } from "react-icons/gr";
+import Plx from 'react-plx';
 
 
 
@@ -21,7 +22,19 @@ function Header({ who }) {
         setIsOpen(!isOpen);
     };
     let Theme=useContext(ThemeContext);
-
+    const parallaxData = [
+      {
+        start: 90,
+        end: 500,
+        properties: [
+          {
+            startValue: 1,
+            endValue: 0,
+            property: "opacity",
+          },
+        ],
+      },
+    ];
     return (
         <>
         <nav>
@@ -137,33 +150,36 @@ function Header({ who }) {
         </ul>
         <button className='ThemeBig' onClick={()=>{Theme.toggleTheme()}}>{Theme.theme==='light' ? <FaRegMoon size={30}/>:<GrSun color={'white'} size={30}/>}</button>
     </nav>
-        <header className={Theme.theme}>
+    <Plx parallaxData={parallaxData}>
+    <header className={Theme.theme}>
 
-            <div className='Hero' id='Hero'>
-                <div className='WhoContainer'>
-                    <div>
-                        <p id='title'>{who.title}</p>
-                        <div className='desc'>{parse(who.desc)}</div>
-                        <div className='B'>
-                        <Link
-                        id='B1'
-      to="Contact" 
-      spy={true} 
-      smooth={true} 
-      offset={50} 
-      duration={500} 
+<div className='Hero' id='Hero'>
+    <div className='WhoContainer'>
+        <div>
+            <p id='title'>{who.title}</p>
+            <div className='desc'>{parse(who.desc)}</div>
+            <div className='B'>
+            <Link
+            id='B1'
+to="Contact" 
+spy={true} 
+smooth={true} 
+offset={50} 
+duration={500} 
 
-    >Contact Me</Link> 
-                            <a id='B2' href={who.links}>My Github <GoArrowUpRight size={20}/></a>
-                        </div>
-                    </div>
-                    <div className='ImgContain'>
-                        <img src={`${p + who.images[0].img}`} alt="hero-image" />
-                        <div className='Border'></div>
-                    </div>
-                </div>
+>Contact Me</Link> 
+                <a id='B2' href={who.links}>My Github <GoArrowUpRight size={20}/></a>
             </div>
-        </header>
+        </div>
+        <div className='ImgContain'>
+            <img src={`${p + who.images[0].img}`} alt="hero-image" />
+            <div className='Border'></div>
+        </div>
+    </div>
+</div>
+</header>
+    </Plx>
+       
         </>
     );
 }

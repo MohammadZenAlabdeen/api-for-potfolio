@@ -134,8 +134,23 @@ header .Hero .WhoContainer .B a{
 header .Hero .WhoContainer .B #B1{
     background-color: rgb(107, 36, 178);
     color: white;
-    padding: 25px 30px;
+    width: 142px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
+}
+.dark #B1:hover{
+    border: 1px rgb(107, 36, 178) solid;
+    background-color: #28282B !important;
+    transition: 0.2s ease-in-out;
+}
+.light #B1:hover{
+    border: 1px rgb(107, 36, 178) solid;
+    background-color: #f6f6f6 !important;
+    color: black !important;
+    transition: 0.2s ease-in-out;
 }
 header .Hero .WhoContainer .B #B2{
     display: flex;
@@ -233,8 +248,7 @@ nav .open{
         width: 100%;
      }
      #B1{
-        padding: 15px 20vw !important;
-    
+        width: 180px;
      }
      header .Hero .WhoContainer .ImgContain{
         width: clamp(280px,80vw,600px);

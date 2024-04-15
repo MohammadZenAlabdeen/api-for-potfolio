@@ -11,7 +11,7 @@ function Card(info,token) {
    info=info.info
    const Auth=useContext(AuthContext)
    const navigate=useNavigate();
-   const path='./../../../../../public/images'
+   const path='./../../../../images/'
    console.log(window.location.pathname)
    let p='';
    switch (window.location.pathname) {

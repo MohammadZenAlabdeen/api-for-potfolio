@@ -101,27 +101,36 @@ function Create({name,api}) {
             ],
           };
   return (
-    <div>
+    <div className='Create'>
         <h1>{name}</h1>
         <div className='editor'>
-        <ReactQuill
+      <ReactQuill
       theme="snow" // You can choose different themes like 'snow', 'bubble', 'core', or create your own
       value={edit}
+      id='editor'
       onChange={handleChange}
       formats={formats}
       modules={modules}
-    />
-        </div>
+    />      </div>
 
-                                <input name='title' ref={title} placeholder='title'></input>
-            <input type='file' multiple  name='images'  onChange={(e) => setSelectedFile(e.target.files)}></input>
-        <div>
-                {all.map((element,index)=>{return <div key={index}>{element}</div>})}
-            </div>
-        <input type='text' name='link' ref={link}></input>
-                <button  onClick={(event)=>{event.preventDefault();links()}}>add</button>
-                <br/>
-                <button onClick={()=>{create()}}>submit</button>
+<div className='Input'>
+<input name='title' ref={title} placeholder='title'></input>
+
+
+      <div className='Add'>
+      <div>{all.map((element, index) => <div key={index}>{element}</div>)}</div>
+      <div className='Inner'>
+      <input type='text' name='link' ref={link} placeholder='links'></input>
+      <button onClick={(event) => { event.preventDefault(); links(); }}>add</button>
+      </div>
+
+      </div>
+
+   
+      <input type='file' multiple  name='images'  onChange={(e) => {setSelectedFile(e.target.files);console.log(selectedFile)}}></input>
+
+      <button onClick={() => { create(); }} id='submit'>submit</button>
+</div>
     </div>
   )
 }
