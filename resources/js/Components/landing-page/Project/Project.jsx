@@ -10,6 +10,7 @@ function Project({Project}) {
     
     <div className='Project'>
 <img src={p+Project.images[0].img}></img>
+<div className='Wrap'>
 <div className='Info'>
     <h1>{Project.title}</h1>
     <div className='desc'>
@@ -18,6 +19,8 @@ function Project({Project}) {
     </div>
 </div>
 <a href={Project.link}> <span>Go to website! </span><FaExternalLinkAlt size={20}/></a>
+</div>
+
 
     </div>
   )

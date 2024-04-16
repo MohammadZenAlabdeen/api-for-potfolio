@@ -3,7 +3,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 100px 0;
+        margin: 140px 0;
         padding: 0 40px;
         flex-direction: column;
         text-align: center;
@@ -12,6 +12,7 @@
     .About h1{
         border-bottom: 2px solid rgb(107, 36, 178);
         font-size: 45px;
+        margin-bottom: 100px;
     
     }
     .About p{

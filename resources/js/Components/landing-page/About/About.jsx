@@ -6,7 +6,7 @@ import Plx from 'react-plx';
 function About({About}) {
   const scale = [
     {
-      start: 300,
+      start: self,
       end: 900,
       properties: [
         {

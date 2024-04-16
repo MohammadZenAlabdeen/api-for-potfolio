@@ -24,7 +24,7 @@ function Header({ who }) {
     let Theme=useContext(ThemeContext);
     const parallaxData = [
       {
-        start: 90,
+        start: self,
         end: 500,
         properties: [
           {

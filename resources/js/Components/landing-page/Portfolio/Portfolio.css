@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    margin-bottom: 80px;
 }
 .Portfolio .head h1{
     border-bottom: 2px solid rgb(107, 36, 178);
