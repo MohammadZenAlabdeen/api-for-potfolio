@@ -12,6 +12,10 @@ body{
 .light{
     background-color:#f6f6f6;
     color: black;
+    transition: 0.3s ease-in-out;
+}
+.dark{
+    transition: 0.3s ease-in-out;
 }
 .ThemeBig{
     background: none;

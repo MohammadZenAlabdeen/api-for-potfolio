@@ -17,7 +17,6 @@ function Header({ who }) {
     let p = './../../../../images/';
 
     const [isOpen, setIsOpen] = useState(false);
-
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
