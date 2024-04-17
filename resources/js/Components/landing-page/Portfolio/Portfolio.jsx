@@ -12,7 +12,6 @@ function Portfolio({Portfolio}) {
 
            setProjects(response.data);
            console.log(projects)
-
           } catch (error) {
             console.error(error);
           }
