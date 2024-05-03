@@ -8,7 +8,7 @@ function Portfolio({Portfolio}) {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://127.0.0.1:8000/api/projects');
+            const response = await axios.get('http://mohammadzenalabdeen.site/api/projects');
 
            setProjects(response.data);
            console.log(projects)

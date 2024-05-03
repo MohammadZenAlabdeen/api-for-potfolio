@@ -13,7 +13,7 @@ function Contact() {
     data.append('name',n.current.value)
     data.append('email',e.current.value)
     data.append('desc',d.current.value)
-    axios.post('http://127.0.0.1:8000/api/clientrequest/store',data,{headers:{'Content-Type': 'multipart/form-data'}}).then(()=>{alert('send succesfully')})
+    axios.post('http://mohammadzenalabdeen.site/api/clientrequest/store',data,{headers:{'Content-Type': 'multipart/form-data'}}).then(()=>{alert('send succesfully')})
     }
   return (
     <div className='Contact' id='Contact'>

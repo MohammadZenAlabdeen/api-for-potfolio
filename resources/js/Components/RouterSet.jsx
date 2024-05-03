@@ -24,17 +24,17 @@ return (
    <Routes>
       <Route path='/' element={<LandingPage/>}></Route>
          <Route path='/home' element={<DashboardHome />}>
-         <Route path='/home/Services' element={<DashboardSection name='Services'  api="http://127.0.0.1:8000/api/dashboard/services"/>}/>
-      <Route path='/home/Sections' element={<DashboardSection name='Sections'  api="http://127.0.0.1:8000/api/dashboard/sections"/>}/>
-      <Route path='/home/Projects' element={<DashboardSection name='Projects'  api="http://127.0.0.1:8000/api/dashboard/projects"/>}/>
-      <Route path='/home/Clientrequests' element={<DashboardSection name='Client requests'  api="http://127.0.0.1:8000/api/dashboard/clientrequest"/>}/>
-      <Route path='/home/Clientrequests/trash' element={<DashboardSection name='Trash'  api="http://127.0.0.1:8000/api/dashboard/clientrequest/trash"/>}/>
-      <Route path='/home/Services/create' element={<Create name='service' api='http://127.0.0.1:8000/api/dashboard/service/store'></Create>}></Route>
-      <Route path='/home/Sections/create' element={<Create name='section' api='http://127.0.0.1:8000/api/dashboard/section/store'></Create>}></Route>
-      <Route path='/home/Projects/create' element={<Create name='project' api='http://127.0.0.1:8000/api/dashboard/project/store'></Create>}></Route>
-      <Route path='/home/Services/update/:id' element={<Update name='service' old='http://127.0.0.1:8000/api/dashboard/service/show/' api='http://127.0.0.1:8000/api/dashboard/service/update/'></Update>}></Route>
-      <Route path='/home/Sections/update/:id' element={<Update name='section' old='http://127.0.0.1:8000/api/dashboard/section/show/' api='http://127.0.0.1:8000/api/dashboard/section/update/'></Update>}></Route>
-      <Route path='/home/Projects/update/:id' element={<Update name='project' old='http://127.0.0.1:8000/api/dashboard/project/show/' api='http://127.0.0.1:8000/api/dashboard/project/update/'></Update>}></Route>
+         <Route path='/home/Services' element={<DashboardSection name='Services'  api="http://mohammadzenalabdeen.site/api/dashboard/services"/>}/>
+      <Route path='/home/Sections' element={<DashboardSection name='Sections'  api="http://mohammadzenalabdeen.site/api/dashboard/sections"/>}/>
+      <Route path='/home/Projects' element={<DashboardSection name='Projects'  api="http://mohammadzenalabdeen.site/api/dashboard/projects"/>}/>
+      <Route path='/home/Clientrequests' element={<DashboardSection name='Client requests'  api="http://mohammadzenalabdeen.site/api/dashboard/clientrequest"/>}/>
+      <Route path='/home/Clientrequests/trash' element={<DashboardSection name='Trash'  api="http://mohammadzenalabdeen.site/api/dashboard/clientrequest/trash"/>}/>
+      <Route path='/home/Services/create' element={<Create name='service' api='http://mohammadzenalabdeen.site/api/dashboard/service/store'></Create>}></Route>
+      <Route path='/home/Sections/create' element={<Create name='section' api='http://mohammadzenalabdeen.site/api/dashboard/section/store'></Create>}></Route>
+      <Route path='/home/Projects/create' element={<Create name='project' api='http://mohammadzenalabdeen.site/api/dashboard/project/store'></Create>}></Route>
+      <Route path='/home/Services/update/:id' element={<Update name='service' old='http://mohammadzenalabdeen.site/api/dashboard/service/show/' api='http://mohammadzenalabdeen.site/api/dashboard/service/update/'></Update>}></Route>
+      <Route path='/home/Sections/update/:id' element={<Update name='section' old='http://mohammadzenalabdeen.site/api/dashboard/section/show/' api='http://mohammadzenalabdeen.site/api/dashboard/section/update/'></Update>}></Route>
+      <Route path='/home/Projects/update/:id' element={<Update name='project' old='http://mohammadzenalabdeen.site/api/dashboard/project/show/' api='http://mohammadzenalabdeen.site/api/dashboard/project/update/'></Update>}></Route>
             </Route>
       <Route path="/login" element={<Login/>} />  
 

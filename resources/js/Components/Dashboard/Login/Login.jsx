@@ -19,7 +19,7 @@ function Login() {
     function login(){
 
 
-        const resault = axios.post('http://127.0.0.1:8000/api/login',{email:`${e.current.value}`,password:`${pass.current.value}`},{headers: {
+        const resault = axios.post('http://mohammadzenalabdeen.site/api/login',{email:`${e.current.value}`,password:`${pass.current.value}`},{headers: {
           'Content-Type': 'multipart/form-data'} }).then(res=>{localStorage.setItem('token',res.data.data.token)}).then(navigate('/home'));
 
 

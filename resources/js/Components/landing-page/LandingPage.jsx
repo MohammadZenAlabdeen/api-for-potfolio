@@ -20,7 +20,7 @@ function LandingPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/sections');
+        const response = await axios.get('http://mohammadzenalabdeen.site/api/sections');
         setSections(response.data);
         
         // Filtering element with title 'Who am I?'
