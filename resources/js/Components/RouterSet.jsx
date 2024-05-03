@@ -28,6 +28,7 @@ return (
       <Route path='/home/Sections' element={<DashboardSection name='Sections'  api="http://127.0.0.1:8000/api/dashboard/sections"/>}/>
       <Route path='/home/Projects' element={<DashboardSection name='Projects'  api="http://127.0.0.1:8000/api/dashboard/projects"/>}/>
       <Route path='/home/Clientrequests' element={<DashboardSection name='Client requests'  api="http://127.0.0.1:8000/api/dashboard/clientrequest"/>}/>
+      <Route path='/home/Clientrequests/trash' element={<DashboardSection name='Trash'  api="http://127.0.0.1:8000/api/dashboard/clientrequest/trash"/>}/>
       <Route path='/home/Services/create' element={<Create name='service' api='http://127.0.0.1:8000/api/dashboard/service/store'></Create>}></Route>
       <Route path='/home/Sections/create' element={<Create name='section' api='http://127.0.0.1:8000/api/dashboard/section/store'></Create>}></Route>
       <Route path='/home/Projects/create' element={<Create name='project' api='http://127.0.0.1:8000/api/dashboard/project/store'></Create>}></Route>

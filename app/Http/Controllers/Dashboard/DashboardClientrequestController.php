@@ -16,7 +16,21 @@ class DashboardClientrequestController extends Controller
         $requests=Clientrequest::all();
         return response()->json($requests,200);
     }
-
+    public function trash()
+    {
+        $deleted=Clientrequest::onlyTrashed()->get();
+        return response()->json($deleted,200);
+    }
+    public function restore($id){
+        $clientrequest=Clientrequest::onlyTrashed()->findOrFail($id);
+        $clientrequest->restore();
+        return response()->json("Sucess",200);
+    }
+    public function force_delete($id){
+        $clientrequest=Clientrequest::onlyTrashed()->findOrFail($id);
+        $clientrequest->forceDelete();
+        return response()->json("Destroied",201);
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -26,7 +40,8 @@ class DashboardClientrequestController extends Controller
      * Display the specified resource.
      */
     public function show(Clientrequest $clientrequest)
-    {
+    { 
+   
         return response()->json($clientrequest,200);
     }
 

@@ -39,6 +39,11 @@
     color: white;
     height: 20px;
     vertical-align: middle;
+}.card #restore{
+    background-color: purple;
+    color: white;
+    height: 20px;
+    vertical-align: middle;
 }
 .card #update{
     background-color: blue;

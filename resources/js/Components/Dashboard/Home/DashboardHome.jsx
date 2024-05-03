@@ -24,6 +24,7 @@ const DashboardHome = () => {
             <Link style={{textDecoration:'none'}} to={'/home/Services'}> <span>Services</span></Link>
             <Link style={{textDecoration:'none'}} to={'/home/Projects'}> <span>Projects</span> </Link>
             <Link style={{textDecoration:'none'}} to={'/home/Clientrequests'}> <span>Clientrequests</span></Link>
+            <Link style={{textDecoration:'none'}} to={'/home/Clientrequests/trash'}> <span>Clientrequests trash</span></Link>
           </div>
           <h1>Mohammad Zen Al-Abdeen</h1>
         </nav>

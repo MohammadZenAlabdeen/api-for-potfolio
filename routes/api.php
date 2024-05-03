@@ -49,8 +49,11 @@ Route::middleware('auth:sanctum')->group( function (){
     Route::put('/dashboard/project/update/{project}',[DashboardProjectController::class,'update']);
 
     Route::get('/dashboard/clientrequest',[DashboardClientrequestController::class,'index']);
+    Route::get('/dashboard/clientrequest/trash',[DashboardClientrequestController::class,'trash']);
     Route::get('/dashboard/clientrequest/show/{clientrequest}',[DashboardClientrequestController::class,'show']);
+    Route::get('/dashboard/clientrequest/restore/{id}',[DashboardClientrequestController::class,'restore']);
     Route::delete('/dashboard/clientrequest/delete/{clientrequest}',[DashboardClientrequestController::class,'destroy']);
+    Route::delete('/dashboard/clientrequest/destroy/{id}',[DashboardClientrequestController::class,'force_delete']);
     
     Route::get('/dashboard/service/show/{service}',[DashboardServiceController::class,'show']);
     Route::post('/dashboard/service/store',[DashboardServiceController::class,'store']);
